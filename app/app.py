@@ -13,18 +13,21 @@ st.set_page_config(
 )
 
 # ─── Load Data ─────────────────────────────────────────────────
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 @st.cache_data
 def load_data():
-    df = pd.read_csv("../data/crime_data_cleaned.csv")
-    city_summary = pd.read_csv("../data/city_summary.csv")
-    hotspot_zones = pd.read_csv("../data/hotspot_zones.csv")
+    df = pd.read_csv(os.path.join(BASE_DIR, "data", "crime_data_cleaned.csv"))
+    city_summary = pd.read_csv(os.path.join(BASE_DIR, "data", "city_summary.csv"))
+    hotspot_zones = pd.read_csv(os.path.join(BASE_DIR, "data", "hotspot_zones.csv"))
     return df, city_summary, hotspot_zones
 
 @st.cache_resource
 def load_model():
-    with open("../model/saved_model.pkl", "rb") as f:
+    with open(os.path.join(BASE_DIR, "model", "saved_model.pkl"), "rb") as f:
         model = pickle.load(f)
-    with open("../model/encoders.pkl", "rb") as f:
+    with open(os.path.join(BASE_DIR, "model", "encoders.pkl"), "rb") as f:
         encoders = pickle.load(f)
     return model, encoders
 
@@ -51,7 +54,7 @@ st.sidebar.metric("Cities Covered", df["City"].nunique() if "City" in df.columns
 
 # ─── Helper ────────────────────────────────────────────────────
 def show_chart(filename, caption=""):
-    path = f"../visualizations/{filename}"
+    path = os.path.join(BASE_DIR, "visualizations", filename)
     if os.path.exists(path):
         img = Image.open(path)
         st.image(img, caption=caption, use_column_width=True)
@@ -161,7 +164,7 @@ elif page == "🗺️ Hotspot Map":
     st.title("🗺️ Crime Hotspot Map")
     st.markdown("---")
 
-    map_path = "../visualizations/crime_hotspot_map.html"
+    map_path = os.path.join(BASE_DIR, "visualizations", "crime_hotspot_map.html")
     if os.path.exists(map_path):
         with open(map_path, "r", encoding="utf-8") as f:
             map_html = f.read()
