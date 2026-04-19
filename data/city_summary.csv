@@ -1,0 +1,30 @@
+City,Total_Crimes,Top_Domain,Top_Crime,Top_Weapon,Avg_Victim_Age,Cases_Closed_Pct,Top_Hotspot_Zone,Lat,Lon
+Agra,764,Other Crime,Assault,None,43.7,49.2,Afternoon Stealth Crime,27.1767,78.0081
+Ahmedabad,1817,Other Crime,Assault,Explosives,44.3,51.1,Morning High Risk Zone,23.0225,72.5714
+Bangalore,3588,Other Crime,Public Intoxication,Blunt Object,44.7,49.0,Morning High Risk Zone,12.9716,77.5946
+Bhopal,690,Other Crime,Assault,Knife,44.2,47.8,Morning High Risk Zone,23.2599,77.4126
+Chennai,2493,Other Crime,Homicide,Knife,44.1,49.8,Morning High Risk Zone,13.0827,80.2707
+Delhi,5400,Other Crime,Firearm Offense,Firearm,44.2,49.0,Afternoon Stealth Crime,28.6139,77.209
+Faridabad,354,Other Crime,Identity Theft,Other,45.9,52.8,Morning High Risk Zone,28.4089,77.3178
+Ghaziabad,704,Other Crime,Traffic Violation,Poison,44.7,48.3,Morning High Risk Zone,28.6692,77.4538
+Hyderabad,2881,Other Crime,Vehicle - Stolen,Explosives,44.2,50.6,Morning High Risk Zone,17.385,78.4867
+Indore,699,Other Crime,Firearm Offense,Explosives,43.8,49.8,Afternoon Stealth Crime,22.7196,75.8577
+Jaipur,1479,Other Crime,Counterfeiting,Explosives,44.9,51.0,Morning High Risk Zone,26.9124,75.7873
+Kalyan,355,Other Crime,Traffic Violation,Knife,45.2,46.5,Morning High Risk Zone,19.2403,73.1305
+Kanpur,1112,Other Crime,Vandalism,Other,44.1,51.3,Early Morning Street Crime,26.4499,80.3319
+Kolkata,2518,Other Crime,Fraud,Explosives,44.7,50.3,Early Morning Street Crime,22.5726,88.3639
+Lucknow,1456,Other Crime,Traffic Violation,Blunt Object,44.8,51.2,Early Morning Street Crime,26.8467,80.9462
+Ludhiana,761,Other Crime,Fraud,Blunt Object,44.8,53.0,Early Morning Street Crime,30.901,75.8573
+Meerut,395,Other Crime,Domestic Violence,Knife,45.0,47.3,Early Morning Street Crime,28.9845,77.7064
+Mumbai,4415,Other Crime,Sexual Assault,Knife,44.3,49.9,Afternoon Urban Violence,19.076,72.8777
+Nagpur,1053,Other Crime,Assault,Knife,44.5,50.5,Early Morning Street Crime,21.1458,79.0882
+Nashik,366,Other Crime,Assault,Other,45.9,47.8,Afternoon Urban Violence,19.9975,73.7898
+Patna,695,Other Crime,Sexual Assault,Poison,44.8,50.2,Early Morning Street Crime,25.5941,85.1376
+Pune,2212,Other Crime,Vandalism,Firearm,45.0,49.8,Early Morning Street Crime,18.5204,73.8567
+Rajkot,320,Other Crime,Extortion,Firearm,43.7,51.6,Afternoon Urban Violence,22.3039,70.8022
+Srinagar,371,Other Crime,Vehicle - Stolen,Explosives,43.4,44.7,Afternoon Urban Violence,34.0837,74.7973
+Surat,1111,Other Crime,Traffic Violation,None,44.8,51.1,Afternoon Urban Violence,21.1702,72.8311
+Thane,706,Other Crime,Cybercrime,Other,45.8,53.7,Early Morning Street Crime,19.2183,72.9781
+Varanasi,355,Other Crime,Arson,Knife,44.5,48.7,Early Morning Street Crime,25.3176,82.9739
+Vasai,362,Other Crime,Extortion,Poison,45.4,47.5,Early Morning Street Crime,19.4912,72.8054
+Visakhapatnam,728,Other Crime,Traffic Violation,Blunt Object,44.3,51.0,Afternoon Urban Violence,17.6868,83.2185

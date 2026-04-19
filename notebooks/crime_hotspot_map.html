@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2716c5c42c1b943701c852cfd23ef09c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed; bottom:30px; left:30px; z-index:1000;
+            background:white; padding:12px; border-radius:8px;
+            border:1px solid #ccc; font-family:Arial; font-size:12px">
+    <b>Crime Intensity</b><br>
+    <span style="color:#e74c3c">●</span> Very High (&gt;75%)<br>
+    <span style="color:#e67e22">●</span> High (50–75%)<br>
+    <span style="color:#f1c40f">●</span> Medium (25–50%)<br>
+    <span style="color:#2ecc71">●</span> Low (&lt;25%)
+</div>
+    
+            <div class="folium-map" id="map_2716c5c42c1b943701c852cfd23ef09c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2716c5c42c1b943701c852cfd23ef09c = L.map(
+                "map_2716c5c42c1b943701c852cfd23ef09c",
+                {
+                    center: [20.5937, 78.9629],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1fe011244f13012132afbe560ce4b818 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1fe011244f13012132afbe560ce4b818.addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+            var circle_marker_3a212d987d7fb97d54da1717130078fa = L.circleMarker(
+                [27.1767, 78.0081],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.112592592592593, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_87d6e953536c2184cb287d77c6566264 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_08b0f37ab8ee3f5ee80c8513e7ddc8e1 = $(`<div id="html_08b0f37ab8ee3f5ee80c8513e7ddc8e1" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Agra</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 764<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Assault<br>         <b>Top Weapon   :</b> None<br>         <b>Avg Victim Age:</b> 43.7<br>         <b>Cases Closed :</b> 49.2%<br>         <b>Hotspot Zone :</b> Afternoon Stealth Crime     </div>     </div>`)[0];
+                popup_87d6e953536c2184cb287d77c6566264.setContent(html_08b0f37ab8ee3f5ee80c8513e7ddc8e1);
+            
+        
+
+        circle_marker_3a212d987d7fb97d54da1717130078fa.bindPopup(popup_87d6e953536c2184cb287d77c6566264)
+        ;
+
+        
+    
+    
+            circle_marker_3a212d987d7fb97d54da1717130078fa.bindTooltip(
+                `<div>
+                     Agra: 764 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_92744dfc6342f79ccd821d5e5f983f0f = L.circleMarker(
+                [23.0225, 72.5714],
+                {"bubblingMouseEvents": true, "color": "#f1c40f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1c40f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.402592592592594, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_c2fef9f60a95b536154cf0e3a666da5d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e0b9d31722a11a245625d0a57831e59e = $(`<div id="html_e0b9d31722a11a245625d0a57831e59e" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#f1c40f; margin:0">📍 Ahmedabad</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 1,817<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Assault<br>         <b>Top Weapon   :</b> Explosives<br>         <b>Avg Victim Age:</b> 44.3<br>         <b>Cases Closed :</b> 51.1%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_c2fef9f60a95b536154cf0e3a666da5d.setContent(html_e0b9d31722a11a245625d0a57831e59e);
+            
+        
+
+        circle_marker_92744dfc6342f79ccd821d5e5f983f0f.bindPopup(popup_c2fef9f60a95b536154cf0e3a666da5d)
+        ;
+
+        
+    
+    
+            circle_marker_92744dfc6342f79ccd821d5e5f983f0f.bindTooltip(
+                `<div>
+                     Ahmedabad: 1,817 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ee83981656a276483750d7667a2b7af = L.circleMarker(
+                [12.9716, 77.5946],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.617777777777775, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_b6b42545f14018f5b6073ea5406a352b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a3ea5a073f951fda585720cce82fba6f = $(`<div id="html_a3ea5a073f951fda585720cce82fba6f" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#e67e22; margin:0">📍 Bangalore</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 3,588<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Public Intoxication<br>         <b>Top Weapon   :</b> Blunt Object<br>         <b>Avg Victim Age:</b> 44.7<br>         <b>Cases Closed :</b> 49.0%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_b6b42545f14018f5b6073ea5406a352b.setContent(html_a3ea5a073f951fda585720cce82fba6f);
+            
+        
+
+        circle_marker_6ee83981656a276483750d7667a2b7af.bindPopup(popup_b6b42545f14018f5b6073ea5406a352b)
+        ;
+
+        
+    
+    
+            circle_marker_6ee83981656a276483750d7667a2b7af.bindTooltip(
+                `<div>
+                     Bangalore: 3,588 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_17b8a97ffca2cde8b48e4420a067eddf = L.circleMarker(
+                [23.2599, 77.4126],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.81111111111111, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_5332f95fd0095bb86a7d9830353ddbf8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_99866fa7719a176db9d8e987056bb20d = $(`<div id="html_99866fa7719a176db9d8e987056bb20d" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Bhopal</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 690<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Assault<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 44.2<br>         <b>Cases Closed :</b> 47.8%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_5332f95fd0095bb86a7d9830353ddbf8.setContent(html_99866fa7719a176db9d8e987056bb20d);
+            
+        
+
+        circle_marker_17b8a97ffca2cde8b48e4420a067eddf.bindPopup(popup_5332f95fd0095bb86a7d9830353ddbf8)
+        ;
+
+        
+    
+    
+            circle_marker_17b8a97ffca2cde8b48e4420a067eddf.bindTooltip(
+                `<div>
+                     Bhopal: 690 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b299063d2432cd3780d1bc6ec2e72154 = L.circleMarker(
+                [13.0827, 80.2707],
+                {"bubblingMouseEvents": true, "color": "#f1c40f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1c40f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.156666666666666, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_0e27201d35e0decb47de86fcc2acf2c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ce370e8c471ecd0daae2552a7163cafb = $(`<div id="html_ce370e8c471ecd0daae2552a7163cafb" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#f1c40f; margin:0">📍 Chennai</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 2,493<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Homicide<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 44.1<br>         <b>Cases Closed :</b> 49.8%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_0e27201d35e0decb47de86fcc2acf2c4.setContent(html_ce370e8c471ecd0daae2552a7163cafb);
+            
+        
+
+        circle_marker_b299063d2432cd3780d1bc6ec2e72154.bindPopup(popup_0e27201d35e0decb47de86fcc2acf2c4)
+        ;
+
+        
+    
+    
+            circle_marker_b299063d2432cd3780d1bc6ec2e72154.bindTooltip(
+                `<div>
+                     Chennai: 2,493 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_28752758696f7714140f528fcc576e38 = L.circleMarker(
+                [28.6139, 77.209],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 30.0, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_938493bcfa841216cf32133c2554e771 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e6109029bc80fa5658851a4cb28f18eb = $(`<div id="html_e6109029bc80fa5658851a4cb28f18eb" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#e74c3c; margin:0">📍 Delhi</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 5,400<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Firearm Offense<br>         <b>Top Weapon   :</b> Firearm<br>         <b>Avg Victim Age:</b> 44.2<br>         <b>Cases Closed :</b> 49.0%<br>         <b>Hotspot Zone :</b> Afternoon Stealth Crime     </div>     </div>`)[0];
+                popup_938493bcfa841216cf32133c2554e771.setContent(html_e6109029bc80fa5658851a4cb28f18eb);
+            
+        
+
+        circle_marker_28752758696f7714140f528fcc576e38.bindPopup(popup_938493bcfa841216cf32133c2554e771)
+        ;
+
+        
+    
+    
+            circle_marker_28752758696f7714140f528fcc576e38.bindTooltip(
+                `<div>
+                     Delhi: 5,400 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81a15e7c16d08e2be76101caa3e3569a = L.circleMarker(
+                [28.4089, 77.3178],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.442222222222222, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_5f7545d2d7431dd15bcce755c26ed0c5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_052429bf1182e779191eb1f4a23501a3 = $(`<div id="html_052429bf1182e779191eb1f4a23501a3" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Faridabad</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 354<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Identity Theft<br>         <b>Top Weapon   :</b> Other<br>         <b>Avg Victim Age:</b> 45.9<br>         <b>Cases Closed :</b> 52.8%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_5f7545d2d7431dd15bcce755c26ed0c5.setContent(html_052429bf1182e779191eb1f4a23501a3);
+            
+        
+
+        circle_marker_81a15e7c16d08e2be76101caa3e3569a.bindPopup(popup_5f7545d2d7431dd15bcce755c26ed0c5)
+        ;
+
+        
+    
+    
+            circle_marker_81a15e7c16d08e2be76101caa3e3569a.bindTooltip(
+                `<div>
+                     Faridabad: 354 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8dc8fb0804458584fdd8c399d1c0e769 = L.circleMarker(
+                [28.6692, 77.4538],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.868148148148148, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_8bec3e656e5b42ceaee55fe349b9e8eb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3ef898799967d76aacb3b858fdc50dcb = $(`<div id="html_3ef898799967d76aacb3b858fdc50dcb" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Ghaziabad</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 704<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Traffic Violation<br>         <b>Top Weapon   :</b> Poison<br>         <b>Avg Victim Age:</b> 44.7<br>         <b>Cases Closed :</b> 48.3%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_8bec3e656e5b42ceaee55fe349b9e8eb.setContent(html_3ef898799967d76aacb3b858fdc50dcb);
+            
+        
+
+        circle_marker_8dc8fb0804458584fdd8c399d1c0e769.bindPopup(popup_8bec3e656e5b42ceaee55fe349b9e8eb)
+        ;
+
+        
+    
+    
+            circle_marker_8dc8fb0804458584fdd8c399d1c0e769.bindTooltip(
+                `<div>
+                     Ghaziabad: 704 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1dcdae651dae87369a4100a59c8c8048 = L.circleMarker(
+                [17.385, 78.4867],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.737407407407407, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_fc5e0d1645ddd9ab63f9aee96aada9db = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9eb6268397db3fa57f3a7cc5d3413570 = $(`<div id="html_9eb6268397db3fa57f3a7cc5d3413570" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#e67e22; margin:0">📍 Hyderabad</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 2,881<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Vehicle - Stolen<br>         <b>Top Weapon   :</b> Explosives<br>         <b>Avg Victim Age:</b> 44.2<br>         <b>Cases Closed :</b> 50.6%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_fc5e0d1645ddd9ab63f9aee96aada9db.setContent(html_9eb6268397db3fa57f3a7cc5d3413570);
+            
+        
+
+        circle_marker_1dcdae651dae87369a4100a59c8c8048.bindPopup(popup_fc5e0d1645ddd9ab63f9aee96aada9db)
+        ;
+
+        
+    
+    
+            circle_marker_1dcdae651dae87369a4100a59c8c8048.bindTooltip(
+                `<div>
+                     Hyderabad: 2,881 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9cd0773dc0cc7143e6cafd339488f0e = L.circleMarker(
+                [22.7196, 75.8577],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.847777777777779, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_189631eb141eb7cbf730c2517966978f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_82fb7534ba8879b25cc4bce215b42cf2 = $(`<div id="html_82fb7534ba8879b25cc4bce215b42cf2" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Indore</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 699<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Firearm Offense<br>         <b>Top Weapon   :</b> Explosives<br>         <b>Avg Victim Age:</b> 43.8<br>         <b>Cases Closed :</b> 49.8%<br>         <b>Hotspot Zone :</b> Afternoon Stealth Crime     </div>     </div>`)[0];
+                popup_189631eb141eb7cbf730c2517966978f.setContent(html_82fb7534ba8879b25cc4bce215b42cf2);
+            
+        
+
+        circle_marker_c9cd0773dc0cc7143e6cafd339488f0e.bindPopup(popup_189631eb141eb7cbf730c2517966978f)
+        ;
+
+        
+    
+    
+            circle_marker_c9cd0773dc0cc7143e6cafd339488f0e.bindTooltip(
+                `<div>
+                     Indore: 699 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f7c9615abca6d99ecffeb3d2c81679a = L.circleMarker(
+                [26.9124, 75.7873],
+                {"bubblingMouseEvents": true, "color": "#f1c40f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1c40f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.025555555555556, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_fc53711293caa1a9e74d797c86959a9c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d93d824c6bb8859f8321bcd574ff30a9 = $(`<div id="html_d93d824c6bb8859f8321bcd574ff30a9" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#f1c40f; margin:0">📍 Jaipur</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 1,479<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Counterfeiting<br>         <b>Top Weapon   :</b> Explosives<br>         <b>Avg Victim Age:</b> 44.9<br>         <b>Cases Closed :</b> 51.0%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_fc53711293caa1a9e74d797c86959a9c.setContent(html_d93d824c6bb8859f8321bcd574ff30a9);
+            
+        
+
+        circle_marker_8f7c9615abca6d99ecffeb3d2c81679a.bindPopup(popup_fc53711293caa1a9e74d797c86959a9c)
+        ;
+
+        
+    
+    
+            circle_marker_8f7c9615abca6d99ecffeb3d2c81679a.bindTooltip(
+                `<div>
+                     Jaipur: 1,479 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13e9183294e36197c518aaf58267373f = L.circleMarker(
+                [19.2403, 73.1305],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.446296296296296, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_95162d0a62e109705faa7a93c68aa407 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7fb4575c163d00531bbdb0b3abf82df7 = $(`<div id="html_7fb4575c163d00531bbdb0b3abf82df7" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Kalyan</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 355<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Traffic Violation<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 45.2<br>         <b>Cases Closed :</b> 46.5%<br>         <b>Hotspot Zone :</b> Morning High Risk Zone     </div>     </div>`)[0];
+                popup_95162d0a62e109705faa7a93c68aa407.setContent(html_7fb4575c163d00531bbdb0b3abf82df7);
+            
+        
+
+        circle_marker_13e9183294e36197c518aaf58267373f.bindPopup(popup_95162d0a62e109705faa7a93c68aa407)
+        ;
+
+        
+    
+    
+            circle_marker_13e9183294e36197c518aaf58267373f.bindTooltip(
+                `<div>
+                     Kalyan: 355 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ef9d3dac35eb319aefdcfbfe7e18aa4 = L.circleMarker(
+                [26.4499, 80.3319],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.53037037037037, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_c48f2dd423964ffd8b7752f5a373a63b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b2e0ff6b2ef72c4e3f1bf0a32562c28e = $(`<div id="html_b2e0ff6b2ef72c4e3f1bf0a32562c28e" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Kanpur</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 1,112<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Vandalism<br>         <b>Top Weapon   :</b> Other<br>         <b>Avg Victim Age:</b> 44.1<br>         <b>Cases Closed :</b> 51.3%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_c48f2dd423964ffd8b7752f5a373a63b.setContent(html_b2e0ff6b2ef72c4e3f1bf0a32562c28e);
+            
+        
+
+        circle_marker_6ef9d3dac35eb319aefdcfbfe7e18aa4.bindPopup(popup_c48f2dd423964ffd8b7752f5a373a63b)
+        ;
+
+        
+    
+    
+            circle_marker_6ef9d3dac35eb319aefdcfbfe7e18aa4.bindTooltip(
+                `<div>
+                     Kanpur: 1,112 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06655f3e0927e7dd259ab7fee41c3d99 = L.circleMarker(
+                [22.5726, 88.3639],
+                {"bubblingMouseEvents": true, "color": "#f1c40f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1c40f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.25851851851852, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_9abc26ab1f383220294bd40c099d2d49 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_64aee556bfd18ccdceddb4a35121d914 = $(`<div id="html_64aee556bfd18ccdceddb4a35121d914" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#f1c40f; margin:0">📍 Kolkata</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 2,518<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Fraud<br>         <b>Top Weapon   :</b> Explosives<br>         <b>Avg Victim Age:</b> 44.7<br>         <b>Cases Closed :</b> 50.3%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_9abc26ab1f383220294bd40c099d2d49.setContent(html_64aee556bfd18ccdceddb4a35121d914);
+            
+        
+
+        circle_marker_06655f3e0927e7dd259ab7fee41c3d99.bindPopup(popup_9abc26ab1f383220294bd40c099d2d49)
+        ;
+
+        
+    
+    
+            circle_marker_06655f3e0927e7dd259ab7fee41c3d99.bindTooltip(
+                `<div>
+                     Kolkata: 2,518 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b368b3a938d3095d4d5da648650cdfa = L.circleMarker(
+                [26.8467, 80.9462],
+                {"bubblingMouseEvents": true, "color": "#f1c40f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1c40f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.931851851851851, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_64b2ba439df3ceb372794da7a15d0642 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ea5292fa84228d3da3f9a8de4e3eefed = $(`<div id="html_ea5292fa84228d3da3f9a8de4e3eefed" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#f1c40f; margin:0">📍 Lucknow</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 1,456<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Traffic Violation<br>         <b>Top Weapon   :</b> Blunt Object<br>         <b>Avg Victim Age:</b> 44.8<br>         <b>Cases Closed :</b> 51.2%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_64b2ba439df3ceb372794da7a15d0642.setContent(html_ea5292fa84228d3da3f9a8de4e3eefed);
+            
+        
+
+        circle_marker_3b368b3a938d3095d4d5da648650cdfa.bindPopup(popup_64b2ba439df3ceb372794da7a15d0642)
+        ;
+
+        
+    
+    
+            circle_marker_3b368b3a938d3095d4d5da648650cdfa.bindTooltip(
+                `<div>
+                     Lucknow: 1,456 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3dc1044119cded3a3b31dd331506be55 = L.circleMarker(
+                [30.901, 75.8573],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.10037037037037, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_5c42b73082cf256146553b131a6d1abb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_81809b00b40fec47f2728da6dc03b51a = $(`<div id="html_81809b00b40fec47f2728da6dc03b51a" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Ludhiana</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 761<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Fraud<br>         <b>Top Weapon   :</b> Blunt Object<br>         <b>Avg Victim Age:</b> 44.8<br>         <b>Cases Closed :</b> 53.0%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_5c42b73082cf256146553b131a6d1abb.setContent(html_81809b00b40fec47f2728da6dc03b51a);
+            
+        
+
+        circle_marker_3dc1044119cded3a3b31dd331506be55.bindPopup(popup_5c42b73082cf256146553b131a6d1abb)
+        ;
+
+        
+    
+    
+            circle_marker_3dc1044119cded3a3b31dd331506be55.bindTooltip(
+                `<div>
+                     Ludhiana: 761 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_feb63e23971c808e6ae17da7a28d0477 = L.circleMarker(
+                [28.9845, 77.7064],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.60925925925926, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_7009fcb21801544e02b0f1dbc5088c4a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fbfd85e612009e2abceb423b5431af67 = $(`<div id="html_fbfd85e612009e2abceb423b5431af67" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Meerut</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 395<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Domestic Violence<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 45.0<br>         <b>Cases Closed :</b> 47.3%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_7009fcb21801544e02b0f1dbc5088c4a.setContent(html_fbfd85e612009e2abceb423b5431af67);
+            
+        
+
+        circle_marker_feb63e23971c808e6ae17da7a28d0477.bindPopup(popup_7009fcb21801544e02b0f1dbc5088c4a)
+        ;
+
+        
+    
+    
+            circle_marker_feb63e23971c808e6ae17da7a28d0477.bindTooltip(
+                `<div>
+                     Meerut: 395 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_464349bf6ae63a2fc19b1fb0c1049668 = L.circleMarker(
+                [19.076, 72.8777],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.987037037037037, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_400ca5af719c4a5945e466a07e18667b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0bc58b6096190b07096492ba51ac3460 = $(`<div id="html_0bc58b6096190b07096492ba51ac3460" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#e74c3c; margin:0">📍 Mumbai</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 4,415<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Sexual Assault<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 44.3<br>         <b>Cases Closed :</b> 49.9%<br>         <b>Hotspot Zone :</b> Afternoon Urban Violence     </div>     </div>`)[0];
+                popup_400ca5af719c4a5945e466a07e18667b.setContent(html_0bc58b6096190b07096492ba51ac3460);
+            
+        
+
+        circle_marker_464349bf6ae63a2fc19b1fb0c1049668.bindPopup(popup_400ca5af719c4a5945e466a07e18667b)
+        ;
+
+        
+    
+    
+            circle_marker_464349bf6ae63a2fc19b1fb0c1049668.bindTooltip(
+                `<div>
+                     Mumbai: 4,415 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d203a65c6931852cca45a36b3bb20236 = L.circleMarker(
+                [21.1458, 79.0882],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.29, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_7e39d672ba940d5e2773b846be3fc2c0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68dbc2c83c2ab8e2e0bca23c553a7ff6 = $(`<div id="html_68dbc2c83c2ab8e2e0bca23c553a7ff6" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Nagpur</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 1,053<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Assault<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 44.5<br>         <b>Cases Closed :</b> 50.5%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_7e39d672ba940d5e2773b846be3fc2c0.setContent(html_68dbc2c83c2ab8e2e0bca23c553a7ff6);
+            
+        
+
+        circle_marker_d203a65c6931852cca45a36b3bb20236.bindPopup(popup_7e39d672ba940d5e2773b846be3fc2c0)
+        ;
+
+        
+    
+    
+            circle_marker_d203a65c6931852cca45a36b3bb20236.bindTooltip(
+                `<div>
+                     Nagpur: 1,053 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_68e9c6d31aaa66591c804950dbdcda6c = L.circleMarker(
+                [19.9975, 73.7898],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.491111111111111, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_1726e47493564348ca57325aa8fa459d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c9906fb9d2d07cbb587b9ea614a68263 = $(`<div id="html_c9906fb9d2d07cbb587b9ea614a68263" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Nashik</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 366<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Assault<br>         <b>Top Weapon   :</b> Other<br>         <b>Avg Victim Age:</b> 45.9<br>         <b>Cases Closed :</b> 47.8%<br>         <b>Hotspot Zone :</b> Afternoon Urban Violence     </div>     </div>`)[0];
+                popup_1726e47493564348ca57325aa8fa459d.setContent(html_c9906fb9d2d07cbb587b9ea614a68263);
+            
+        
+
+        circle_marker_68e9c6d31aaa66591c804950dbdcda6c.bindPopup(popup_1726e47493564348ca57325aa8fa459d)
+        ;
+
+        
+    
+    
+            circle_marker_68e9c6d31aaa66591c804950dbdcda6c.bindTooltip(
+                `<div>
+                     Nashik: 366 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34d9c46aed030d6d5f38922e2afc78ed = L.circleMarker(
+                [25.5941, 85.1376],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.831481481481482, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_9a723aafa8bde4d941497b2778c66ef1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9b5fedd837ceca1d134ac6bbe79fc867 = $(`<div id="html_9b5fedd837ceca1d134ac6bbe79fc867" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Patna</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 695<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Sexual Assault<br>         <b>Top Weapon   :</b> Poison<br>         <b>Avg Victim Age:</b> 44.8<br>         <b>Cases Closed :</b> 50.2%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_9a723aafa8bde4d941497b2778c66ef1.setContent(html_9b5fedd837ceca1d134ac6bbe79fc867);
+            
+        
+
+        circle_marker_34d9c46aed030d6d5f38922e2afc78ed.bindPopup(popup_9a723aafa8bde4d941497b2778c66ef1)
+        ;
+
+        
+    
+    
+            circle_marker_34d9c46aed030d6d5f38922e2afc78ed.bindTooltip(
+                `<div>
+                     Patna: 695 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a5c595021ef150220fa80763a791eb8 = L.circleMarker(
+                [18.5204, 73.8567],
+                {"bubblingMouseEvents": true, "color": "#f1c40f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1c40f", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.01185185185185, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_dbe2cc9af1c369dd0f9a3550545a4ebc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_74a7c30320d8eb4c64ecc23377c34c2f = $(`<div id="html_74a7c30320d8eb4c64ecc23377c34c2f" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#f1c40f; margin:0">📍 Pune</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 2,212<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Vandalism<br>         <b>Top Weapon   :</b> Firearm<br>         <b>Avg Victim Age:</b> 45.0<br>         <b>Cases Closed :</b> 49.8%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_dbe2cc9af1c369dd0f9a3550545a4ebc.setContent(html_74a7c30320d8eb4c64ecc23377c34c2f);
+            
+        
+
+        circle_marker_1a5c595021ef150220fa80763a791eb8.bindPopup(popup_dbe2cc9af1c369dd0f9a3550545a4ebc)
+        ;
+
+        
+    
+    
+            circle_marker_1a5c595021ef150220fa80763a791eb8.bindTooltip(
+                `<div>
+                     Pune: 2,212 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_582584af417dd9b43173b49fdb77c4ab = L.circleMarker(
+                [22.3039, 70.8022],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.303703703703704, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_330cd6bda1e7219d511f84940f8a820c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e08bc36c8593c9980f429965342d117 = $(`<div id="html_8e08bc36c8593c9980f429965342d117" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Rajkot</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 320<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Extortion<br>         <b>Top Weapon   :</b> Firearm<br>         <b>Avg Victim Age:</b> 43.7<br>         <b>Cases Closed :</b> 51.6%<br>         <b>Hotspot Zone :</b> Afternoon Urban Violence     </div>     </div>`)[0];
+                popup_330cd6bda1e7219d511f84940f8a820c.setContent(html_8e08bc36c8593c9980f429965342d117);
+            
+        
+
+        circle_marker_582584af417dd9b43173b49fdb77c4ab.bindPopup(popup_330cd6bda1e7219d511f84940f8a820c)
+        ;
+
+        
+    
+    
+            circle_marker_582584af417dd9b43173b49fdb77c4ab.bindTooltip(
+                `<div>
+                     Rajkot: 320 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3c419bb185ae52040fbdf8457c0107b = L.circleMarker(
+                [34.0837, 74.7973],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.511481481481482, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_002861b8ab28d4dab62c4b20c574f709 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9d54e08027205961d82eb0dddf2df73f = $(`<div id="html_9d54e08027205961d82eb0dddf2df73f" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Srinagar</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 371<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Vehicle - Stolen<br>         <b>Top Weapon   :</b> Explosives<br>         <b>Avg Victim Age:</b> 43.4<br>         <b>Cases Closed :</b> 44.7%<br>         <b>Hotspot Zone :</b> Afternoon Urban Violence     </div>     </div>`)[0];
+                popup_002861b8ab28d4dab62c4b20c574f709.setContent(html_9d54e08027205961d82eb0dddf2df73f);
+            
+        
+
+        circle_marker_b3c419bb185ae52040fbdf8457c0107b.bindPopup(popup_002861b8ab28d4dab62c4b20c574f709)
+        ;
+
+        
+    
+    
+            circle_marker_b3c419bb185ae52040fbdf8457c0107b.bindTooltip(
+                `<div>
+                     Srinagar: 371 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_69673846e037265f8bec09586bfafb41 = L.circleMarker(
+                [21.1702, 72.8311],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.526296296296296, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_4ac71524ad65cf53e1541faaf99a4acb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_08d9c9ed50aaab23587d825740dfeada = $(`<div id="html_08d9c9ed50aaab23587d825740dfeada" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Surat</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 1,111<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Traffic Violation<br>         <b>Top Weapon   :</b> None<br>         <b>Avg Victim Age:</b> 44.8<br>         <b>Cases Closed :</b> 51.1%<br>         <b>Hotspot Zone :</b> Afternoon Urban Violence     </div>     </div>`)[0];
+                popup_4ac71524ad65cf53e1541faaf99a4acb.setContent(html_08d9c9ed50aaab23587d825740dfeada);
+            
+        
+
+        circle_marker_69673846e037265f8bec09586bfafb41.bindPopup(popup_4ac71524ad65cf53e1541faaf99a4acb)
+        ;
+
+        
+    
+    
+            circle_marker_69673846e037265f8bec09586bfafb41.bindTooltip(
+                `<div>
+                     Surat: 1,111 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9044aafb8d432fff43b589c7162b4b3 = L.circleMarker(
+                [19.2183, 72.9781],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.876296296296296, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_40b4a48629a88285f27a42c639b6ae2e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_36886558716553d9a6dfaed4d06990e4 = $(`<div id="html_36886558716553d9a6dfaed4d06990e4" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Thane</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 706<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Cybercrime<br>         <b>Top Weapon   :</b> Other<br>         <b>Avg Victim Age:</b> 45.8<br>         <b>Cases Closed :</b> 53.7%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_40b4a48629a88285f27a42c639b6ae2e.setContent(html_36886558716553d9a6dfaed4d06990e4);
+            
+        
+
+        circle_marker_a9044aafb8d432fff43b589c7162b4b3.bindPopup(popup_40b4a48629a88285f27a42c639b6ae2e)
+        ;
+
+        
+    
+    
+            circle_marker_a9044aafb8d432fff43b589c7162b4b3.bindTooltip(
+                `<div>
+                     Thane: 706 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db9abbb8fcc157d55b96238c67c98407 = L.circleMarker(
+                [25.3176, 82.9739],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.446296296296296, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_c15549101c32659dde7e697edc02a90d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fc6c05ba4fe52e709051ce0b0adb5238 = $(`<div id="html_fc6c05ba4fe52e709051ce0b0adb5238" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Varanasi</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 355<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Arson<br>         <b>Top Weapon   :</b> Knife<br>         <b>Avg Victim Age:</b> 44.5<br>         <b>Cases Closed :</b> 48.7%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_c15549101c32659dde7e697edc02a90d.setContent(html_fc6c05ba4fe52e709051ce0b0adb5238);
+            
+        
+
+        circle_marker_db9abbb8fcc157d55b96238c67c98407.bindPopup(popup_c15549101c32659dde7e697edc02a90d)
+        ;
+
+        
+    
+    
+            circle_marker_db9abbb8fcc157d55b96238c67c98407.bindTooltip(
+                `<div>
+                     Varanasi: 355 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9dce8de4372a75fe1a3bcc70c5d1e696 = L.circleMarker(
+                [19.4912, 72.8054],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.474814814814815, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_75926f4c670d3e9a36a9f7d86a718af0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_184bbcce34e7b650f9512ea9dbc6a726 = $(`<div id="html_184bbcce34e7b650f9512ea9dbc6a726" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Vasai</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 362<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Extortion<br>         <b>Top Weapon   :</b> Poison<br>         <b>Avg Victim Age:</b> 45.4<br>         <b>Cases Closed :</b> 47.5%<br>         <b>Hotspot Zone :</b> Early Morning Street Crime     </div>     </div>`)[0];
+                popup_75926f4c670d3e9a36a9f7d86a718af0.setContent(html_184bbcce34e7b650f9512ea9dbc6a726);
+            
+        
+
+        circle_marker_9dce8de4372a75fe1a3bcc70c5d1e696.bindPopup(popup_75926f4c670d3e9a36a9f7d86a718af0)
+        ;
+
+        
+    
+    
+            circle_marker_9dce8de4372a75fe1a3bcc70c5d1e696.bindTooltip(
+                `<div>
+                     Vasai: 362 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec20ae0f4ad8ae6822e76f3dea591ccb = L.circleMarker(
+                [17.6868, 83.2185],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.965925925925927, "stroke": true, "weight": 3}
+            ).addTo(map_2716c5c42c1b943701c852cfd23ef09c);
+        
+    
+        var popup_aa31a07319e9139185b7a2dbe8fb0a6a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b321234eebc5f160eeed2e35dc92b8e7 = $(`<div id="html_b321234eebc5f160eeed2e35dc92b8e7" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; width:220px">         <h4 style="color:#2ecc71; margin:0">📍 Visakhapatnam</h4>         <hr style="margin:4px 0">         <b>Total Crimes :</b> 728<br>         <b>Top Domain   :</b> Other Crime<br>         <b>Top Crime    :</b> Traffic Violation<br>         <b>Top Weapon   :</b> Blunt Object<br>         <b>Avg Victim Age:</b> 44.3<br>         <b>Cases Closed :</b> 51.0%<br>         <b>Hotspot Zone :</b> Afternoon Urban Violence     </div>     </div>`)[0];
+                popup_aa31a07319e9139185b7a2dbe8fb0a6a.setContent(html_b321234eebc5f160eeed2e35dc92b8e7);
+            
+        
+
+        circle_marker_ec20ae0f4ad8ae6822e76f3dea591ccb.bindPopup(popup_aa31a07319e9139185b7a2dbe8fb0a6a)
+        ;
+
+        
+    
+    
+            circle_marker_ec20ae0f4ad8ae6822e76f3dea591ccb.bindTooltip(
+                `<div>
+                     Visakhapatnam: 728 crimes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
