@@ -45,6 +45,7 @@ page = st.sidebar.radio("Navigate", [
     "🎯 Victim & Weapon Analysis",
     "🗺️ Hotspot Map",
     "🤖 ML Predictions",
+    "🔮 Live Crime Predictor",
 ])
 
 st.sidebar.markdown("---")
@@ -204,3 +205,88 @@ elif page == "🤖 ML Predictions":
     with tab3:
         st.subheader("Feature Importance")
         show_chart("chart10_feature_importance.png")
+
+# ═══════════════════════════════════════════════════════════════
+# PAGE 6 — Live Crime Predictor (Fixed Version)
+# ═══════════════════════════════════════════════════════════════
+elif page == "🔮 Live Crime Predictor":
+    st.title("🔮 Live Crime Predictor")
+    st.markdown("Enter details to predict the most likely crime domain.")
+    st.markdown("---")
+
+    # This helper function handles the naming mismatch automatically
+    def get_encoder(search_key):
+        # Checks if the exact key exists, otherwise tries to find a partial match
+        if search_key in encoders:
+            return encoders[search_key]
+        for k in encoders.keys():
+            if search_key.split('_')[-1] in k.lower():
+                return encoders[k]
+        return None
+
+    def get_time_of_day(hour):
+        if 5 <= hour < 12: return 'Morning'
+        elif 12 <= hour < 17: return 'Afternoon'
+        elif 17 <= hour < 21: return 'Evening'
+        else: return 'Night'
+
+    # Mapping your UI to the encoders we know exist in your model
+    enc_city = get_encoder('city')
+    enc_weapon = get_encoder('weapon')
+    enc_gender = get_encoder('gender')
+    enc_target = get_encoder('target')
+    enc_day = get_encoder('day')
+    enc_tod = get_encoder('tod')
+
+    if not enc_city or not enc_weapon:
+        st.error("Could not find matching encoders in model/encoders.pkl.")
+        st.write("Current keys in your file:", list(encoders.keys()))
+    else:
+        col1, col2 = st.columns(2)
+        with col1:
+            city = st.selectbox("🏙️ City", sorted(enc_city.classes_))
+            hour = st.slider("🕐 Hour of Day", 0, 23, 12)
+            day = st.selectbox("📅 Day of Week", ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+        
+        with col2:
+            weapon = st.selectbox("🔪 Weapon Used", sorted(enc_weapon.classes_))
+            age = st.slider("👤 Victim Age", 1, 90, 25)
+            gender = st.selectbox("⚧ Victim Gender", enc_gender.classes_ if enc_gender else ["M", "F", "X"])
+        
+        month = st.slider("📆 Month", 1, 12, 6)
+        is_closed = st.radio("📁 Case Status", ["Open", "Closed"], horizontal=True)
+
+        if st.button("🔮 Predict Crime Domain", use_container_width=True):
+            try:
+                tod = get_time_of_day(hour)
+                
+                # Use the encoders found above
+                row = pd.DataFrame({
+                    'City_enc':   [enc_city.transform([city])[0]],
+                    'Hour':       [hour],
+                    'Day_enc':    [enc_day.transform([day])[0] if enc_day else 0],
+                    'Weapon_enc': [enc_weapon.transform([weapon])[0]],
+                    'Victim Age': [age],
+                    'ToD_enc':    [enc_tod.transform([tod])[0] if enc_tod else 0],
+                    'Month_Num':  [month],
+                    'Is Closed':  [1 if is_closed == "Closed" else 0],
+                    'Gender_enc': [enc_gender.transform([gender])[0] if enc_gender else 0]
+                })
+
+                prediction = model.predict(row)[0]
+                probabilities = model.predict_proba(row)[0]
+                predicted_label = enc_target.classes_[prediction]
+
+                st.success(f"### 🎯 Predicted Domain: **{predicted_label}**")
+                
+                prob_df = pd.DataFrame({
+                    'Domain': enc_target.classes_,
+                    'Probability': [p * 100 for p in probabilities]
+                }).sort_values('Probability', ascending=False)
+                
+                for _, p_row in prob_df.iterrows():
+                    st.write(f"**{p_row['Domain']}** ({p_row['Probability']:.1f}%)")
+                    st.progress(int(p_row['Probability']))
+
+            except Exception as e:
+                st.error(f"Prediction logic error: {e}")
